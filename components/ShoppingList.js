@@ -11,7 +11,8 @@ const getItems = async () => {
         if (!res.ok) {
             throw new Error("Failed to fetch items");
         }
-        return await res.json();
+
+        return res.json();
 
     } catch (error) {
         console.log("Error loading topics: ", error);
@@ -19,9 +20,9 @@ const getItems = async () => {
 }
 
 export default async function ShoppingList() {
-    const {itemsAll} = await getItems();
+    const {items} = await getItems();
     return <>
-        {itemsAll.map((item) => (
+        {items.map((item) => (
             // eslint-disable-next-line react/jsx-key
             <div className='p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start'>
                 <div>

@@ -11,8 +11,8 @@ export async function POST(request) {
 
 export async function GET() {
     await connectMongoDB();
-    const itemsAll = await Items.find();
-    return NextResponse.json({itemsAll});
+    const items = await Items.find();
+    return NextResponse.json({items});
 }
 
 export async function DELETE(request) {
